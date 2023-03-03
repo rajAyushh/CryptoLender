@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 
 const pages = ['Lend', 'Borrow', 'Buy RCoin'];
@@ -113,7 +114,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Link to="/about">LOGO</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: '10', md: 'flex' } }}>
             {pages.map((page) => (
