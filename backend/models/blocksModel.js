@@ -18,6 +18,9 @@ var blockSchema = new Schema(
     currentHash: {
       type: mongoose.Schema.Types.String,
     },
+    transactionArray:{
+        type: mongoose.Schema.Types.Array,
+    },
     nonce: {
       type: mongoose.Schema.Types.Number,
       default: 0,
