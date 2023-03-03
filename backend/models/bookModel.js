@@ -1,20 +1,19 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
 
-const bookSchema = mongoose.Schema(
-    {
-        _id:{
-            type:mongoose.Schema.Types.ObjectId
-        },
-        author: {
-            type: mongoose.Schema.Types.String
-        },
-        name: {
-            type: mongoose.Schema.Types.String
-        }
+var Schema = mongoose.Schema
+
+var bookSchema = new Schema({
+    _id: {
+        type: mongoose.Schema.Types.ObjectId
     },
-    {timestamps : true}
-)
+    author:{
+        type: mongoose.Schema.Types.String
+    },
+    name: {
+        type: mongoose.Schema.Types.String
+    }
+},{collection:'Books'})
 
 const Book = mongoose.model('Book', bookSchema)
 

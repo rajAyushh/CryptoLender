@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const db = "mongodb+srv://ashwin:Atlas0512@cluster0.2z2fuz5.mongodb.net/?retryWrites=true&w=majority"
+const db = "mongodb+srv://ashwin:Atlas0512@cluster0.2z2fuz5.mongodb.net/Bookstore?retryWrites=true&w=majority"
 
 async function connectDB() {
   try {
