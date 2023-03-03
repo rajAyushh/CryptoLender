@@ -1,4 +1,4 @@
-const { Login } = require("../models/bookModel");
+const { Login } = require("../models/loginModel");
 
 exports.viewAllLoginDetails = async (req, res, next) => {
   result = await Login.find();
