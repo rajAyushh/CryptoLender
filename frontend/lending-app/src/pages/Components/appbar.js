@@ -12,10 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
-const pages = ['Lend', 'Borrow'];
-const pages1 = ['Manage Loans', 'Help'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const pages = ['Lend', 'Borrow', 'Buy RCoin'];
+const pages1 = ['How we work', 'Contact us', 'Manage Loans', 'Help'];
+const settings = ['Profile', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -112,7 +114,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            <Link to="/about">LOGO</Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: '10', md: 'flex' } }}>
             {pages.map((page) => (

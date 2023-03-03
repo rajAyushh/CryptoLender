@@ -3,17 +3,11 @@ import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import './homepage.css'; // import the CSS file
 import AppBar from './Components/appbar'
 import { blue, cyan } from '@mui/material/colors';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
 import Typography from '@mui/material/Typography';
-
-const sortBy = [
-  {label: 'Price: Low to High'},
-  {label: 'Price: High to Low'},
-  {label: 'Amount'},
-  {label: 'Interest Rate'},
-  {label: 'Payback Period'}
-];
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';  
 
 const mdTheme = createTheme({
   palette: {
@@ -35,10 +29,16 @@ const mdTheme = createTheme({
 });
 
 
-function HomePage() {
+export default function HomePage() {
+  const [opt, setOpt] = React.useState('');
+
+  const handleChange = (event) => {
+    setOpt(event.target.value);
+  };
+  
   return (
     <ThemeProvider theme={mdTheme}>
-    <div>
+    <div className='main'>
       <div className="container">
         <div>
           <AppBar/>
@@ -54,15 +54,23 @@ function HomePage() {
             >
               Welcome to P2P
           </Typography>
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={sortBy}
-            
-            sx={{ width: 300, ml: 30}}
-            renderInput={(params) => <TextField {...params} label="Sort By" />}
-          />
-          <div className="postings">
+          <FormControl sx={{width: 500, mb:2}}>
+            <InputLabel id="sort by">Sort By</InputLabel>
+            <Select
+              labelId="sort by"
+              id="sorter"
+              value={opt}
+              label="options"
+              onChange={handleChange}
+            >
+              <MenuItem value={10}>Amount</MenuItem>
+              <MenuItem value={20}>Interest Rate</MenuItem>
+              <MenuItem value={30}>Payback Period</MenuItem>
+              <MenuItem value={40}>Price: High to Low</MenuItem>
+              <MenuItem value={50}>Price: Low to High</MenuItem>
+            </Select>
+          </FormControl>
+          <div className='postings'>
             <div className="posting">
               <img src="https://via.placeholder.com/150" alt="Posting Image" />
               <div>
@@ -107,4 +115,3 @@ function HomePage() {
   );
 }
 
-export default HomePage;
