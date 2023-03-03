@@ -6,7 +6,7 @@ import Listing from './pages/listing';
 function App() {
   return (
     <div className="App">
-      <Listing />
+      <Homepage />
     </div>
   );
 }
