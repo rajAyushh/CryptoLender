@@ -1,19 +1,18 @@
-const { MongoClient } = require('mongodb')
+const mongoose = require('mongoose')
+const db = "mongodb+srv://ashwin:Atlas0512@cluster0.2z2fuz5.mongodb.net/?retryWrites=true&w=majority"
 
-let dbConnection
-let uri = `mongodb+srv://ashwin:Atlas0512@cluster0.2z2fuz5.mongodb.net/?retryWrites=true&w=majority`
+async function connectDB() {
+  try {
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
 
-module.exports = {
-    connectToDb: (cb) => {
-        MongoClient.connect(uri)
-        .then((client) => {
-            dbConnection = client.db()
-            return cb
-        })
-        .catch(err => {
-            console.log(err)
-            return cb(err)
-        })
-    },
-    getDb: () => dbConnection
+    console.log('MongoDB Atlas connected...')
+  } catch (error) {
+    console.error(error.message)
+    process.exit(1)
+  }
 }
+
+module.exports = connectDB
