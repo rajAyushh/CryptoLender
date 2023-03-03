@@ -1,9 +1,10 @@
 import './App.css';
+import Routes from './Router';
 
 function App() {
   return (
     <div className="App">
-      <h1>Lending App</h1>
+      <Routes />
     </div>
   );
 }
