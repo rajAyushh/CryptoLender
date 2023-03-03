@@ -1,9 +1,14 @@
-
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
 
 .container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -15,13 +20,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
+  width: 50%;
 }
 
 .posting {
   width: 300px;
-  margin: 20px;
-  padding: 20px;
+  margin: 5px;
+  padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   background-color: #f9f9f9;
