@@ -1,6 +1,8 @@
+const SHA256 = require("crypto-js/sha256");
 class rupeeCOINTransaction {
   constructor(sender, recipient, quantity, interestRate) {
     this.txnId = Date.now().toString(36) + Math.random().toString(36).substr(2);
+    this.timestamp = Date.now();
     this.sender = sender;
     this.recipient = recipient;
     this.quantity = quantity;

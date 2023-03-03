@@ -31,7 +31,7 @@ class CryptoBlock {
         this.previousHash +
         this.timestamp +
         this.merkleRoot +
-        this.nonce
+        this.nonce + this.difficulty
     ).toString();
   }
 
