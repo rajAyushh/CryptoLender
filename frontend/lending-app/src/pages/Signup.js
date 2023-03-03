@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useState} from 'react'
+import axios from 'axios'
 
 const theme = createTheme();
 
@@ -25,6 +26,7 @@ export default function Signup() {
         setClicked(true);
         setPublicKey(crypto.randomUUID().substring(1,8))
         setPrivateKey(crypto.randomUUID().substring(1,8))
+        axios.post()
     }
   };
 
