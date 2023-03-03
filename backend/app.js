@@ -1,35 +1,21 @@
+const port = 8080
+
 const express = require('express')
-const { connectToDb, getDb } = require('./db')
+const cors = require('cors')
+
+const connectDB = require('./db')
+
+console.log("Connecting to DB...")
+connectDB()
 
 const app = express()
-let db
+app.use(cors())
+app.use(express.json())
 
-// app.listen(8000, () => {
-//     console.log("App listening on 8000")
-// }) 
+app.use('/', require('./start/router'))
 
-connectToDb((err) => {
-    if(!err) {
-        app.listen(8000, () => {
-            console.log("App listening on 8000")
-        })   
-        db = getDb()
-    } else {
-        console.log(err)
-    }
+const server = app.listen(port, () => {
+    console.log(`App is now running on port ${port}...`)
 })
 
-app.get('/books',(req,res)=> {
-    let books = []
-    db.collection('Books')
-    .find()
-    .forEach(book => books.push(book))
-    .then(() => {
-        res.status(200).json(books)
-    })
-    .catch(() => {
-        res.status(500).json({error:'Could Not Fetch'})
-    })
-
-    res.json({mssg: "Welcome to the API"})
-})
+module.exports = server
