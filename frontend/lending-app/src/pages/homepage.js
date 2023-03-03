@@ -12,23 +12,20 @@ function HomePage() {
           <li><a href="#">Dashboard</a></li>
           <li>
             <form>
-              <input type="text" placeholder="Search..." />
-              <button type="submit">Search</button>
+              <select>
+                <option value="">Filter Postings:</option>
+                <option value="amount">Amount</option>
+                <option value="interest_rate">Interest Rate</option>
+                <option value="payback_period">Payback Period</option>
+                <option value="price_high_low">Price: High to Low</option>
+                <option value="price_low_high">Price: Low to High</option>
+              </select>
+              <button type="submit">Filter</button>
             </form>
           </li>
         </ul>
       </nav>
       <div className="container">
-        <div className="left-section">
-          <h2>Filter Postings:</h2>
-          <ul>
-            <li><a href="#">Amount</a></li>
-            <li><a href="#">Interest Rate</a></li>
-            <li><a href="#">Payback Period</a></li>
-            <li><a href="#">Price: High to Low</a></li>
-            <li><a href="#">Price: Low to High</a></li>
-          </ul>
-        </div>
         <div className="right-section">
           <h1>Welcome to My Website</h1>
           <div className="postings">
@@ -38,6 +35,10 @@ function HomePage() {
                 <h2>Posting Title</h2>
                 <p>Posting Description</p>
                 <p>Posting Price</p>
+                <div>
+                  <button>Borrow</button>
+                  <button>Save</button>
+                </div>
               </div>
             </div>
             <div className="posting">
@@ -46,6 +47,10 @@ function HomePage() {
                 <h2>Posting Title</h2>
                 <p>Posting Description</p>
                 <p>Posting Price</p>
+                <div>
+                  <button>Borrow</button>
+                  <button>Save</button>
+                </div>
               </div>
             </div>
             <div className="posting">
@@ -54,6 +59,10 @@ function HomePage() {
                 <h2>Posting Title</h2>
                 <p>Posting Description</p>
                 <p>Posting Price</p>
+                <div>
+                  <button>Borrow</button>
+                  <button>Save</button>
+                </div>
               </div>
             </div>
           </div>

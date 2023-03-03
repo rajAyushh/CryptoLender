@@ -1,163 +1,111 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
+nav {
+  background-color: #f1f1f1;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav li a {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.left-section {
+  margin-right: 40px;
+}
+
+.postings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.posting {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.posting:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.posting img {
+  width: 150px;
+  height: 150px;
+}
+
+.posting h2 {
+  margin-top: 0;
+}
+
+.posting p {
+  margin: 10px 0;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.borrow {
+  margin-right: 20px;
+}
+
+.save {
+  margin-left: 20px;
+}
+
+/* increase distance between filter dropdown and button */
+.filter-dropdown {
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  /* adjust font size for small screens */
   nav {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  nav ul {
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 20px;
-    list-style: none;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  nav form input {
-    padding: 5px;
-    margin-right: 10px;
-    border-radius: 3px;
-    border: none;
-  }
-  
-  nav form button {
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: none;
-    background-color: #4CAF50;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-  }
-  
-  .left-section {
-    width: calc(1/3 * 100%);
-    padding: 20px;
-    background-color: rgb(0, 217, 255);
-    font-size: 18px;
-    color: #fff;
-  }
-  
-  .left-section h2 {
-    margin-top: 0;
-  }
-  
-  .slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 5px;
-    background: #ddd;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-  }
-  
-  .slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: #4CAF50;
-    cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: #4CAF50;
-    cursor: pointer;
-  }
-  
-  .left-section ul {
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .left-section ul li {
-    margin-bottom: 10px;
-  }
-  
-  .left-section ul li a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .right-section {
-    width: calc(2/3 * 100%);
-    padding: 20px;
-  }
-  
-  .right-section h1 {
-    margin-top: 0;
-  }
-  
-  .postings {
-    display: flex;
-    flex-direction: column;
+    font-size: 16px;
   }
   
   .posting {
-    width: calc(130%);
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-  
-  .posting img {
     width: 100%;
-    max-width: 150px;
-    height: auto;
   }
-  
-  .posting h2 {
-    margin-top: 0;
-  }
-  
-  .posting p {
-    margin-bottom: 5px;
-  }
-  
-  @media (max-width: 767px) {
-    .container {
-      flex-direction: column;
-    }
-    
-    .left-section {
-      width: 100%;
-    }
-    
-    .right-section {
-      width: 100%;
-    }
-    
-    .posting {
-      width: 100%;
-    }
-  }
-  
+}
