@@ -1,13 +1,28 @@
 const SHA256 = require("crypto-js/sha256");
+const { MerkleTree } = require("merkletreejs");
+class MerkleTree{
+    computeMerkleRoot(txnHashArray){
+        const tree = new MerkleTree(txnHashArray, SHA256);
+        return tree.getRoot().toString("hex");
+    }
+    // verifyLeaf(leafHash){
+    //     const leaves = ["a", "b", "c"].map((x) => SHA256(x));
+    //     const tree = new MerkleTree(leaves, SHA256);
+    //     const root = tree.getRoot().toString("hex");
+    //     const leaf = SHA256("a");
+    //     const proof = tree.getProof(leaf);
+    //     console.log(tree.verify(proof, leaf, root));
+    // }
+}
 class CryptoBlock {
-  constructor(height, merkleRoot, previousHash = " ") {
-    this.height = height;
+  constructor(prevHeight,txnHashArray , merkleRoot, previousHash = " ") {
+    this.height = prevHeight++;
     this.timestamp = Date.now();
-    this.merkleRoot = merkleRoot;
+    this.merkleRoot = MerkleTree.computeMerkleRoot(txnHashArray);
     this.previousHash = previousHash;
-    this.currentHash = this.computeHash();
     this.nonce = 0;
     this.difficulty = 4;
+    this.currentHash = this.computeHash();
   }
 
   computeHash() {
@@ -30,8 +45,9 @@ class CryptoBlock {
   }
   startGenesisBlock() {
     return new CryptoBlock(0, "Initial Block in the Chain", "0");
-  }
+  }}
   //first put genesis block to the table
+const rupeeCOIN = new CryptoBlock();
   //   checkChainValidity(lastBlockHeight, ) {
   //     for (let i = 1; i < lastBlockHeight; i++) {
   //       const currentBlock = this.blockchain[i];
@@ -44,51 +60,8 @@ class CryptoBlock {
   //     }
   //     return true;
   //   }
-}
 
-// class CryptoBlockchain {
-//   constructor() {
-//     this.blockchain = [this.startGenesisBlock()];
-//     this.difficulty = 4;
-//   }
-//   startGenesisBlock() {
-//     return new CryptoBlock(0, "Initial Block in the Chain", "0");
-//   }
-//   obtainLatestBlock() {
-//     return this.blockchain[this.blockchain.length - 1];
-//     //use mongoDB to get the last block height
-//   }
-//   addNewBlock(newBlock) {
-//     newBlock.previousHash = this.obtainLatestBlock().hash;
-//     //newBlock.hash = newBlock.computeHash();
-//     newBlock.proofOfWork(this.difficulty);
-//     this.blockchain.push(newBlock);
-//   }
 
-  
-// }
-// class rupeeCOINTransaction {
-//   constructor(sender, recipient, quantity, interestRate) {
-//     this.txnId=Date.now().toString(36) + Math.random().toString(36).substr(2);
-//     this.sender = sender;
-//     this.recipient = recipient;
-//     this.quantity = quantity;
-//     this.interestRate = interestRate;
-//   }
-//   //push transaction data in db +++ the hash of txn
-//   computeTransactionHash() {
-//     return SHA256(
-//       this.sender + "sent"+
-//         this.recipient + 
-//         + this.quantity+
-//         "rupeeCOIN at"+ this.interestRate+ "on"+
-//         this.timestamp + "txnID" + this.txnId
-//     ).toString();
-//   }
-
-// }
-// let txn = new rupeeCOINTransaction();
-let rupeeCOIN = new CryptoBlockchain();
 
 console.log("rupeeCOIN mining in progress....");
 // rupeeCOIN.addNewBlock(
