@@ -1,36 +1,4 @@
-nav {
-  background-color: #f1f1f1;
-  overflow: hidden;
-  font-size: 20px;
-  padding: 20px;
-}
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-nav li a {
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav li a:hover {
-  background-color: #ddd;
-  color: black;
-}
 
 .container {
   display: flex;
