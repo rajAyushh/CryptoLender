@@ -5,15 +5,14 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
+import PaidRoundedIcon from '@mui/icons-material/PaidRounded';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
-
+import { useNavigate, Link } from 'react-router-dom';
 
 const pages = ['Lend', 'Borrow', 'Buy RCoin'];
 const pages1 = ['How we work', 'Contact us', 'Manage Loans', 'Help'];
@@ -38,11 +37,49 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const navigate = useNavigate();
+
+  function openLend(event) {
+    event.preventDefault();
+
+    navigate('/listing');
+  }
+
+  function openBorrow(event) {
+    event.preventDefault();
+
+    navigate('/borrow');
+  }
+
+  function openBuycoin(event) {
+    event.preventDefault();
+
+    navigate('/');
+  }
+
+  function openDashboard(event) {
+    event.preventDefault();
+
+    navigate('/dashboard');
+  }
+
+  function openWork(event) {
+    event.preventDefault();
+
+    navigate('/work');
+  }
+
+  function openContact(event) {
+    event.preventDefault();
+
+    navigate('/contact');
+  }
+
   return (
     <AppBar>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <PaidRoundedIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -58,10 +95,10 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            P2P
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -96,8 +133,8 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          </Box> */}
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -114,30 +151,48 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            <Link to="/about">LOGO</Link>
-          </Typography>
+            LOGO
+          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: '10', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+            <Button
+                onClick={openLend}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
-            ))}
+                Lend money
+            </Button>
+            <Button
+                onClick={openBorrow}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Borrow money
+            </Button>
+            <Button
+                onClick={openBuycoin}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Buy Rcoin
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0, display: { xs: '10', md: 'flex' } }}>
-            {pages1.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+            <Button
+                onClick={openDashboard}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
-              </Button>
-            ))}
+                Dashboard
+            </Button>
+            <Button
+                onClick={openWork}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                How we Work
+            </Button>
+            <Button
+                onClick={openContact}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Contact Us
+            </Button>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 2 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
