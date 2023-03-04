@@ -1,4 +1,20 @@
 import React, { useState } from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import AppBar from './Components/appbar';
+import Typography from '@mui/material/Typography';
+
+const mdTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#009da1',
+    },
+  },
+  text: {
+      primary: {
+          main: '#FFFFFF',
+      },
+  }
+});
 
 function EmiCalculator() {
   const [principal, setPrincipal] = useState('');
@@ -18,8 +34,10 @@ function EmiCalculator() {
   };
 
   return (
+    <ThemeProvider theme={mdTheme}>
     <div>
-      <h2>Monthly EMI Calculator</h2>
+      <AppBar/>
+      <Typography variant='h3' marginTop={11} marginBottom={4}> Monthly EMI Calculator</Typography>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
           <label htmlFor="principal">Principal Amount:</label>
@@ -51,6 +69,7 @@ function EmiCalculator() {
         </div>
       )}
     </div>
+    </ThemeProvider>
   );
 }
 

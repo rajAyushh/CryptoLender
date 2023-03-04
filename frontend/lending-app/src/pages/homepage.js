@@ -132,7 +132,7 @@ export default function HomePage() {
         </CardContent>
       </CardActionArea>
     </Card>
-    <Card sx={{ maxWidth: 345, margin: 5 }}>
+    {/* <Card sx={{ maxWidth: 345, margin: 5 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -149,7 +149,7 @@ export default function HomePage() {
           </Typography>
         </CardContent>
       </CardActionArea>
-    </Card>
+    </Card> */}
     </Grid>
     </div>
     </ThemeProvider>

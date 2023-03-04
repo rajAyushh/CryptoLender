@@ -11,6 +11,7 @@ import Borrow from './pages/borrow';
 import Work from './pages/work';
 import Contact from './pages/contact';
 import Profile from './pages/profile'
+import EMI from './pages/emi'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route exact path='/work' element  ={<Work/>}/>
           <Route exact path='/contact' element  ={<Contact/>}/>
           <Route exact path='/profile' element  ={<Profile/>}/>
+          <Route exact path='/emi' element  ={<EMI/>}/>
         </Routes>
       </Router>
     </div>

@@ -6,18 +6,21 @@ import { blue, cyan } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import AppBarN from './Components/appbar';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
+import borrow from '../resources/borrow.jpg'
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { useNavigate } from 'react-router-dom';
+
 // import { mainListItems, secondaryListItems } from './listItems';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
@@ -100,12 +103,20 @@ const mdTheme = createTheme({
         }
     }
   });
-
+  
 function DashboardContent() {
 //   const [open, setOpen] = React.useState(true);
 //   const toggleDrawer = () => {
 //     setOpen(!open);
 //   };
+const navigate = useNavigate();
+function toEmi(event) {
+  event.preventDefault();
+
+  navigate('/emi');
+}
+
+
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -180,7 +191,7 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+              
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
@@ -188,6 +199,9 @@ function DashboardContent() {
                     display: 'flex',
                     flexDirection: 'column',
                     height: 240,
+                    backgroundColor: 'grey.800',
+                    color: '#fff',
+                    width: '100%'
                   }}
                 >
                     <Typography
@@ -199,6 +213,7 @@ function DashboardContent() {
                     >
                         Amount Borrowed and Sum to be returned:
                     </Typography>
+                    {<img style={{ display: 'none', width: '100%' }} src={borrow} alt='none' />}
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
@@ -231,7 +246,7 @@ function DashboardContent() {
               </Grid>
             </Grid>
             {/* <Copyright sx={{ pt: 4 }} /> */}
-            <button>Calculate Emi</button>
+            <Button variant='contained' onClick={toEmi}>Calculate Emi</Button>
           </Container>
         </Box>
       </Box>
