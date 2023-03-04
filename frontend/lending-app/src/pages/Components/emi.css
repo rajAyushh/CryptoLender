@@ -1,0 +1,57 @@
+.emi-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .emi-container h2 {
+    margin-top: 0;
+  }
+  
+  .emi-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .emi-container .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .emi-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .emi-container input[type="number"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .emi-container button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emi-container button:hover {
+    background-color: #2980b9;
+  }
+  
+  .emi-container .emi-result {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  

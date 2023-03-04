@@ -231,10 +231,12 @@ function DashboardContent() {
               </Grid>
             </Grid>
             {/* <Copyright sx={{ pt: 4 }} /> */}
+            <button>Calculate Emi</button>
           </Container>
         </Box>
       </Box>
     </ThemeProvider>
+    
   );
 }
 
