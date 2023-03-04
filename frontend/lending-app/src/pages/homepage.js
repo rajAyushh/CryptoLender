@@ -145,7 +145,7 @@ export default function HomePage() {
             Cute
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Coz doggos are cute n u are too! And this is not responsive like sad doggo
+            Coz doggos are cute n u are too! And this is not responsive like a sad doggo
           </Typography>
         </CardContent>
       </CardActionArea>

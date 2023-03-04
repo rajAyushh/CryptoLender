@@ -72,7 +72,8 @@ export default function Work() {
                 P2P is a peer-to-peer lending platform, an alternative to traditional loans and investing
                 options. We cut out the middleman to connect people who need money with those who have money to
                 invest. This results in a win-win situation for both investors and borrowers with borrowers
-                getting funded easily and investors earning great returns!
+                getting funded easily and investors earning great returns. We also provide advance level of security 
+                using our Blockchain based backend where neither we nor the lenders can have access to your private details!
             </Typography>
         </div>
     </div>

@@ -215,6 +215,9 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem>
+                  <Typography textAlign="center">User: #ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad</Typography>
+                </MenuItem>
                 <MenuItem onClick={openWallet}>
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
