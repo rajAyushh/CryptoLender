@@ -43,7 +43,7 @@ function ResponsiveAppBar() {
   function openBuycoin(event) {
     event.preventDefault();
 
-    navigate('/');
+    navigate('/convert');
   }
 
   function openDashboard(event) {
