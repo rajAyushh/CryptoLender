@@ -11,26 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Lend', 'Borrow', 'Buy RCoin'];
-const pages1 = ['How we work', 'Contact us', 'Manage Loans', 'Help'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -73,6 +62,18 @@ function ResponsiveAppBar() {
     event.preventDefault();
 
     navigate('/contact');
+  }
+
+  function openWallet(event) {
+    event.preventDefault();
+
+    navigate('/profile');
+  }
+
+  function logOut(event) {
+    event.preventDefault();
+
+    navigate('/login');
   }
 
   return (
@@ -214,11 +215,17 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+                <MenuItem onClick={openWallet}>
+                  <Typography textAlign="center">Profile</Typography>
+                </MenuItem>
+                <MenuItem onClick={logOut}>
+                  <Typography textAlign="center">Log Out</Typography>
+                </MenuItem>
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
         </Toolbar>

@@ -10,6 +10,7 @@ import Signup from './pages/Signup';
 import Borrow from './pages/borrow';
 import Work from './pages/work';
 import Contact from './pages/contact';
+import Profile from './pages/profile'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route exact path='/borrow' element  ={<Borrow/>}/>
           <Route exact path='/work' element  ={<Work/>}/>
           <Route exact path='/contact' element  ={<Contact/>}/>
+          <Route exact path='/profile' element  ={<Profile/>}/>
         </Routes>
       </Router>
     </div>
