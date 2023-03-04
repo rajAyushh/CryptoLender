@@ -11,6 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import working from '../resources/working.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const mdTheme = createTheme({
   palette: {
@@ -26,14 +27,43 @@ const mdTheme = createTheme({
 });
 
 export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  const navigate = useNavigate();
+
+  const [pubKey, setPubKey] = React.useState()
+  const [priKey, setPriKey] = React.useState()
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+  //   console.log({
+  //     email: data.get('email'),
+  //     password: data.get('password'),
+  //   });
+  // };
+
+  const handleKeyChange = (e) => {
+    if(e.target.name == 'publickey') {
+      setPubKey(e.target.value)
+    }  
+    if(e.target.name == 'privatekey') {
+      setPriKey(e.target.value)
+    }
+  }
+
+  const hanldeLogin = (event) => {
+    // const data = new FormData(event.currentTarget);
+    // console.log(priKey)
+    // console.log(pubKey)
+    // if((pubKey === '833dee5') && (priKey === '6159bc7')) {
+    //   alert("Correct")
+    //   console.log('correct')
+    // } else {
+    //   alert("maa chuda")
+    //   console.log('incorrect')
+    // }
+    navigate('/')
+  }
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -69,7 +99,7 @@ export default function Login() {
             <Typography component="h1" variant="h5" href="/Homepage">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -79,22 +109,25 @@ export default function Login() {
                 name="publicKey"
                 autoComplete="publicKey"
                 autoFocus
+                onChange={handleKeyChange}
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                name="privateKey"
+                name="privatekey"
                 label="Private Key"
                 type="password"
                 id="privateKey"
                 autoComplete="privateKey"
+                onChange={handleKeyChange}
               />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={hanldeLogin}
               >
                 Sign In
               </Button>
