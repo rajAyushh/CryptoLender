@@ -12,9 +12,20 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Homepage from './homepage';
+import working from '../resources/working.jpg'
 
-const theme = createTheme();
+const mdTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#009da1',
+    },
+  },
+  text: {
+      primary: {
+          main: '#FFFFFF',
+      },
+  }
+});
 
 export default function Login() {
   const handleSubmit = (event) => {
@@ -27,7 +38,7 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={mdTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
@@ -36,7 +47,7 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: `url(${working})`,
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
