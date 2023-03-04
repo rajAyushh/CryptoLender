@@ -39,7 +39,7 @@ export default function Borrow() {
   
   return (
     <ThemeProvider theme={mdTheme}>
-    <div >
+    <div className='main'>
       <div className="container">
         <div>
           <AppBar/>
@@ -63,11 +63,12 @@ export default function Borrow() {
             <div className="posting">
               {/* <img src="https://via.placeholder.com/150" alt="Posting Image" /> */}
               <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
+                <h4>Posting By: ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad</h4>
+                <p>Amount: 1000</p>
+                <p>Duration: 2months</p>
+                <p>Interest Rate: 12%</p>
                 <div>
-                  <Button variant="contained" sx={{mr: 3}}>Borrow</Button>
+                  <Button variant="contained" sx={{mr: 3, backgroundColor: '#009da1'}}>Borrow</Button>
                   <Button variant="contained" >Save</Button>
                 </div>
               </div>
@@ -75,9 +76,10 @@ export default function Borrow() {
             <div className="posting">
               {/* <img src="https://via.placeholder.com/150" alt="Posting Image" /> */}
               <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
+                <h4>Posting By: b4d1efd97cb2483c9c25df53981be395acad99720c3d1bdf0259b1b349ee53fe</h4>
+                <p>Amount: 1500</p>
+                <p>Duration: 2months</p>
+                <p>Interest Rate: 13%</p>
                 <div>
                   <Button variant="contained" sx={{mr: 3}}>Borrow</Button>
                   <Button variant="contained">Save</Button>
@@ -87,9 +89,10 @@ export default function Borrow() {
             <div className="posting">
               {/* <img src="https://via.placeholder.com/150" alt="Posting Image" /> */}
               <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
+                <h4>Posting By: 9060f0c21ceab31936f5e6bde6165ca36ca156319bbaf89b075cc82588bad811</h4>
+                <p>Amount: 2000</p>
+                <p>Duration: 3months</p>
+                <p>Interest Rate: 15%</p>
                 <div>
                   <Button variant="contained" sx={{mr: 3}}>Borrow</Button>
                   <Button variant="contained">Save</Button>
