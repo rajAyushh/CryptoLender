@@ -1,0 +1,86 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.left-section {
+  margin-right: 40px;
+}
+
+.postings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.posting {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 2;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.2s;
+  background-color: #009da1 rgba(0,0,0,0.2);
+  text-align: center;
+  width: 100%;
+}
+
+.posting:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.posting img {
+  width: 150px;
+  height: 150px;
+}
+
+.posting h2 {
+  margin-top: 0;
+}
+
+.posting p {
+  margin: 10px 0;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.borrow {
+  margin-right: 20px;
+}
+
+.save {
+  margin-left: 20px;
+}
+
+/* increase distance between filter dropdown and button */
+.filter-dropdown {
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  /* adjust font size for small screens */
+  nav {
+    font-size: 16px;
+  }
+  
+  .posting {
+    width: 100%;
+  }
+}

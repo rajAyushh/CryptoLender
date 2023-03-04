@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './listing.css';
 import AppBar from './Components/appbar'
-import { blue, cyan } from '@mui/material/colors';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import { cyan } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Divider from '@mui/material/Divider';
+
 
 const mdTheme = createTheme({
     palette: {
@@ -48,39 +50,54 @@ function CreateListingPage() {
       <div className="container">
         <div>
           <AppBar/>
-          <Typography
-              component="h5"
-              variant="h6"
-              color='#009da1'
-              noWrap
-              marginTop={5}
-              fontWeight={700}
-              fontSize={50}
-              sx={{ flexGrow: 0, mb: 2 }}
-            >
-              Welcome to P2P
-          </Typography>
     <div>
-      <h1>Create a Listing</h1>
-      <form onSubmit={handleSaveListing}>
-        <label>
+      <Typography 
+          component="h2"
+          variant="h4"
+          color='#13293D'
+          noWrap
+          marginTop={5}
+          fontWeight={700}
+          sx={{ flexGrow: 0, mb: 3 }}>
+      Create a Listing
+      </Typography>
+      <Divider/>
+      <form onSubmit={handleSaveListing} width='100%'>
+      <Typography component="h4"
+          variant="h6"
+          color='#247BA0'
+          noWrap
+          marginTop={2}
+          marginBottom={2}>
           Amount to be Lent:
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-        </label>
+          </Typography>
+          <TextField id="amount-lent" label="Amount" variant="outlined" value={amount} width='100%' onChange={(e) => setAmount(e.target.value)}/>
         <br />
-        <label>
-          Duration (in months):
-          <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} />
-        </label>
+        <Typography component="h4"
+          variant="h6"
+          color='#247BA0'
+          noWrap
+          marginTop={1}
+          marginBottom={2}>
+              Duration(in months)
+          </Typography>
+          <TextField id="duration" label="Duration" variant="outlined" value={duration} onChange={(e) => setDuration(e.target.value)}/>
         <br />
-        <label>
-          Interest Rate:
-          <input type="number" step="0.01" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} />
-        </label>
+        <Typography component="h4"
+          variant="h6"
+          color='#247BA0'
+          noWrap
+          marginTop={1}
+          marginBottom={2}>
+              Interest Rate
+          </Typography>
+          <TextField id="interest-rate" label="Interest Rate" variant="outlined" value={interestRate} onChange={(e) => setInterestRate(e.target.value)}/>
+          <Button variant="contained" type="submit" marginTop={8}>Save Listing</Button>
         <br />
-        <button type="submit">Save Listing</button>
       </form>
-      <h2>Saved Listings:</h2>
+
+      
+      {/* <h2>Saved Listings:</h2>
       <ul>
         {savedListings.map((listing, index) => (
           <li key={index}>
@@ -89,7 +106,7 @@ function CreateListingPage() {
             <p>Interest Rate: {listing.interestRate}%</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
     </div>
     </div>

@@ -1,115 +1,156 @@
-import React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import './homepage.css'; // import the CSS file
-import AppBar from './Components/appbar'
-import { blue, cyan } from '@mui/material/colors';
+import * as React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';  
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import working from '../resources/monii.jpg'
+import AppBar from './Components/appbar'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea } from '@mui/material';
+import lender from '../resources/give.jpg';
+import borrow from '../resources/loan.jpg';
+import doggo from '../resources/doggo.jpg';
+import Divider from '@mui/material/Divider';
+import { useNavigate, Link } from 'react-router-dom';
+
+
 
 const mdTheme = createTheme({
   palette: {
     primary: {
       main: '#009da1',
     },
-    secondary: {
-      main: cyan[500],
-    },
+    
   },
   text: {
       primary: {
           main: '#FFFFFF',
       },
-      secondary: {
-          main: cyan[500],
-      }
+      
   }
 });
 
 
-export default function HomePage() {
-  const [opt, setOpt] = React.useState('');
 
-  const handleChange = (event) => {
-    setOpt(event.target.value);
-  };
+export default function HomePage() {
+  const navigate = useNavigate();
+
+  function openLend(event) {
+    event.preventDefault();
   
+    navigate('/listing');
+  }
+  
+  function openBorrow(event) {
+    event.preventDefault();
+  
+    navigate('/borrow');
+  }
+
   return (
     <ThemeProvider theme={mdTheme}>
-    <div className='main'>
-      <div className="container">
-        <div>
-          <AppBar/>
-          <Typography
-              component="h5"
-              variant="h6"
-              color='#009da1'
-              noWrap
-              marginTop={5}
-              fontWeight={700}
-              fontSize={50}
-              sx={{ flexGrow: 0, mb: 2 }}
-            >
-              Welcome to P2P
+    <div textAlign='center'>
+    <AppBar/>
+    <Paper
+      sx={{
+        backgroundColor: 'grey.800',
+        color: '#fff',
+        width: '100%',
+        mt: 9,
+        mb: 5,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundImage: `url(${working})`,
+      }}
+    >
+      {/* Increase the priority of the hero background image */}
+      {<img style={{ display: 'none', width: '100%' }} src={working} alt='none' />}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 10,
+          bottom: 0,
+          right: 0,
+          left: 0,
+          // backgroundColor: 'rgba(0,0,0,.3)',
+        }}
+      />
+      <Grid container>
+        <Grid item md={100}>
+          <Box
+            sx={{
+              p: { xs: 3, md: 6 },
+              pr: { md: 0 },
+            }}
+          >
+            <Typography component="h1" variant="h3" color="#254441" gutterBottom fontWeight={700} fontFamily= 'Helvetica Neue' sx={{textShadow: "1px 1px 3px #fff"}}>
+              P2P: The Lending Borrowing Solution
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+    </Paper>
+    <Grid container>
+    <Divider/>
+    <Card sx={{ maxWidth: 345, margin: 5 }} onClick={openBorrow}>
+      <CardActionArea >
+        <CardMedia
+          component="img"
+          height="140"
+          image={borrow}
+          alt="borrow money"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Borrow Money
           </Typography>
-          <FormControl sx={{width: 500, mb:2}}>
-            <InputLabel id="sort by">Sort By</InputLabel>
-            <Select
-              labelId="sort by"
-              id="sorter"
-              value={opt}
-              label="options"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Amount</MenuItem>
-              <MenuItem value={20}>Interest Rate</MenuItem>
-              <MenuItem value={30}>Payback Period</MenuItem>
-              <MenuItem value={40}>Price: High to Low</MenuItem>
-              <MenuItem value={50}>Price: Low to High</MenuItem>
-            </Select>
-          </FormControl>
-          <div className='postings'>
-            <div className="posting">
-              <img src="https://via.placeholder.com/150" alt="Posting Image" />
-              <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
-                <div>
-                  <button>Borrow</button>
-                  <button>Save</button>
-                </div>
-              </div>
-            </div>
-            <div className="posting">
-              <img src="https://via.placeholder.com/150" alt="Posting Image" />
-              <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
-                <div>
-                  <button>Borrow</button>
-                  <button>Save</button>
-                </div>
-              </div>
-            </div>
-            <div className="posting">
-              <img src="https://via.placeholder.com/150" alt="Posting Image" />
-              <div>
-                <h2>Posting Title</h2>
-                <p>Posting Description</p>
-                <p>Posting Price</p>
-                <div>
-                  <button>Borrow</button>
-                  <button>Save</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <Typography variant="body2" color="text.secondary">
+            Borrow money from trusted lenders for minimun interest rates.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    <Card sx={{ maxWidth: 345, margin: 5 }} onClick={openLend}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={lender}
+          alt="lend money"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Lend Money
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Lend your money to get a borrower and get fixed returns.
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    {/* <Card sx={{ maxWidth: 345, margin: 5 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={doggo}
+          alt="dog"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Cute
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Coz doggos are cute n u are too! And this is not responsive like sad doggo
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card> */}
+    </Grid>
     </div>
     </ThemeProvider>
   );
